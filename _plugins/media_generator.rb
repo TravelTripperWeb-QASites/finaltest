@@ -17,7 +17,7 @@ module Jekyll
     def generate(_site)
       # create_json_files media_dir
       # create_old_media old_media_dir
-      create_definition_files definitions_dir , 'models'
+      # create_definition_files definitions_dir , 'models'
       # create_json_files model_dir, 'models'
     end
 
