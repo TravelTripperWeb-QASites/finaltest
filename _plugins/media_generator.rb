@@ -14,7 +14,6 @@
 module Jekyll
   class MediaGenerator < Generator
     safe true
-    require 'pry'
     def generate(_site)
       # create_json_files media_dir
       #create_old_media old_media_dir
@@ -40,13 +39,13 @@ module Jekyll
       save 'old_media', json
     end
 
+
     def create_definition_files(folder, file_name = 'models')
       hash = Hash.new { |h, k| h[k] = [] }
       unless (File.directory? folder) && file_name == 'models'
         Dir.glob("#{definitions_dir}/**/*.json").map {|f|
           k = File.basename(f,'.*').to_s
           hash[k] << [name: '', file: '']
-          binding.pry
         }
         save file_name,hash
       end
