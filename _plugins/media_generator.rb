@@ -17,7 +17,7 @@ module Jekyll
     def generate(_site)
       create_json_files media_dir
       create_old_media old_media_dir
-      # create_old_media definitions_dir , 'models'
+      create_definition_files definitions_dir , 'models'
       create_json_files model_dir, 'models'
     end
 
@@ -30,7 +30,7 @@ module Jekyll
       end
     end
 
-    def create_old_media(folder, file_name = 'models')
+    def create_old_media(folder)
       return [] unless File.directory? folder
       json = []
       Dir[File.join(folder, '/*')].each do |file|
