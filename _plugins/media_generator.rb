@@ -51,7 +51,7 @@ module Jekyll
       end
     end
     def create_json_files(folder, file_name = 'models')
-      hash = Hash.new { |h, k| h[k] = [] }
+
       return unless File.directory? folder
       sub_folders = Dir.entries("#{folder}/").select { |entry| File.directory? File.join(folder, entry) and !(entry == '.' || entry == '..') }
       if sub_folders.empty?
@@ -59,6 +59,7 @@ module Jekyll
         file = folder.split('/')[-1]
         save file, json
       else
+        hash = Hash.new { |h, k| h[k] = [] }
         sub_folders.each do |file|
           Dir[File.join(folder, file, '*.json')].map do |f|
             data = JSON.parse File.read(f)
