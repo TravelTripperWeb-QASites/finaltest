@@ -14,7 +14,6 @@
 module Jekyll
   class MediaGenerator < Generator
     safe true
-    require 'pry'
     def generate(_site)
       # create_json_files media_dir
       create_old_media old_media_dir
@@ -41,7 +40,6 @@ module Jekyll
 
     def create_json_files(folder, file_name = 'models')
 
-      binding.pry
       unless (File.directory? folder) && file_name == 'models'
         json = Dir.glob("#{definitions_dir}/**/*.json").map {|f| (File.basename(f,".*"))}
         save file_name,json
