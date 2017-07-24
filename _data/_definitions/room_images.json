@@ -11,5 +11,11 @@
       "type": "image",
       "label": "Upload Hero Image"
       
-    }
+    },
+    "slug":
+    {
+    "type" : "slug",
+    "label": "url slug"
+}
+    
 }
